@@ -1,0 +1,14 @@
+@use "sass:map";
+@import 'variables';
+
+@mixin media-down($viewport) {
+  @media (max-width: map.get($viewports, $viewport)) {
+    @content;
+  }
+}
+
+@mixin media-up($viewport) {
+  @media (min-width: calc(#{map.get($viewports, $viewport)} + 1px)) {
+    @content;
+  }
+}
